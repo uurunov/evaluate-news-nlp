@@ -7,15 +7,35 @@ function handleSubmit(event) {
 
 	console.log("::: Form Submitted :::");
 
-    fetch('http://localhost:8081/test')
-    .then(res => res.json())
-    .then(function(res) {
-		fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${res.parsed.API_KEY}&of=json&txt=${formText}&lang=en`)
-		.then(resp => resp.json())
-		.then(function(response) {
-			console.log(response.sentence_list[0]);
-			document.getElementById('results').innerHTML = JSON.stringify(response.sentence_list[0]);
-		})
+	const postData = async ( url = '', data = {} ) => {
+		console.log(data);
+		const response = await fetch(url, {
+			method: 'POST',
+			credentials: 'same-origin',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			// Body data type must match "Content-Type" header
+			body: JSON.stringify(data),
+		});
+
+		try {
+			const newData = await response.json();
+			console.log(newData);
+			return newData;
+		} catch(error) {
+			console.log("error", error);
+		}
+	};
+
+	postData('http://localhost:8081/api/add', {name:formText});
+
+    fetch('http://localhost:8081/api/test')
+    .then(res => res.text())
+    .then(function(resp) {
+		// console.log(resp.sentence_list[0]);
+		// document.getElementById('results').innerHTML = JSON.stringify(resp.sentence_list[0]);
+		console.log(resp);
 	});
 
 	return document.getElementById('results').innerHTML;

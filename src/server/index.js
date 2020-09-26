@@ -1,5 +1,7 @@
 const dotenv = require('dotenv');
-dotenv.config();
+const Key = dotenv.config();
+const baseURL = 'https://api.meaningcloud.com/sentiment-2.1?key=';
+const API = Key.parsed.API_KEY;
 
 // Setup empty JS object to act as endpoint for all routes
 const projectData = {};
@@ -28,9 +30,33 @@ app.get('/', function (req, res) {
 // designates what port the app will listen to for incoming requests
 app.listen(8081, function () {
 	console.log('Example app listening on port 8081!');
-	console.log(dotenv.config());
+	console.log(Key);
 })
 
-app.get('/test', function (req, res) {
-	res.send(dotenv.config());
+/* Function to GET Web API Data*/
+const getDataAPI = async function (baseURL, api, input) {
+	const apiData = await fetch(baseURL+api+input);
+	try {
+		const response = await apiData.json();
+		console.log('API data is received from MeaningCloud');
+		return response;
+	}
+	catch(error) {
+		console.log("Error has occurred:");
+		console.log(error);
+	}
+}
+
+app.get('/api/test', function (req, res) {
+	const input = `&of=json&txt=${projectData.name}&lang=en`;
+	getDataAPI(baseURL, API, input).then(function(data) {
+		console.log(data);
+		res.send(data);
+	});
+})
+
+app.post('/api/add', function (req, res) {
+	console.log(req.body);
+	projectData.name = req.body.name;
+	console.log(projectData.name);
 })

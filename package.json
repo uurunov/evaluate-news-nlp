@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
     "body-parser": "^1.19.0",
     "caniuse-lite": "^1.0.30001137",
     "cors": "^2.8.5",
@@ -35,7 +36,6 @@
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^4.2.2",
-    "webpack-dev-server": "^3.11.0",
-    "workbox-webpack-plugin": "^5.1.4"
+    "webpack-dev-server": "^3.11.0"
   }
 }
