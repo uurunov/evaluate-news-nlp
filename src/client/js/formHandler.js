@@ -33,9 +33,8 @@ function handleSubmit(event) {
     fetch('http://localhost:8081/api/test')
     .then(res => res.text())
     .then(function(resp) {
-		// console.log(resp.sentence_list[0]);
-		// document.getElementById('results').innerHTML = JSON.stringify(resp.sentence_list[0]);
 		console.log(resp);
+		document.getElementById('results').innerHTML = JSON.stringify(resp);
 	});
 
 	return document.getElementById('results').innerHTML;

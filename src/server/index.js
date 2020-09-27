@@ -6,6 +6,7 @@ const API = Key.parsed.API_KEY;
 // Setup empty JS object to act as endpoint for all routes
 const projectData = {};
 
+const fetch = require("node-fetch");
 var path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
