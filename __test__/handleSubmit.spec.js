@@ -10,5 +10,5 @@ describe("Testing the submit functionality", () => {
 		   // Define the expected output, if any, in the form of variables/array
            // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output
            // The general syntax is `expect(myFunction(arg1, arg2, ...)).toEqual(expectedValue);`, where `toEqual()` is a matcher
-           expect(handleSubmit()).not.toBe(" ");
+           expect(handleSubmit).not.toBe(" ");
 })});
