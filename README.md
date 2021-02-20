@@ -17,7 +17,7 @@ This project requires to build a web tool that allows users to run Natural Langu
 - The project sets up service workers in webpack and Jest to run tests on files.
 
 ### App dependencies
-The project is setup using:
+The project is developed using:
 - Webpack
 - Sass
 - Webpack Loaders and Plugins
