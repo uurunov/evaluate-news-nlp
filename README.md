@@ -32,13 +32,13 @@ The project is setup using:
 
 3. For testing purposes, you can run the following command: `npm test`
 
-4. For building purposes, we have 2 modes or environments.
+4. For building purposes, we have 2 modes or environments:
 
-To build production environment, enter the command on the terminal:
+- To build production environment, enter the command on the terminal:
 `npm run build-prod`
 `npm start`
 
-To build development environment, enter the command on the terminal:
+- To build development environment, enter the command on the terminal:
 `npm run build-dev`
 
 ## Contact Details
